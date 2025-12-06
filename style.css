@@ -1,0 +1,527 @@
+/* ===================================
+BASIC RESET AND TYPOGRAPHY
+===================================
+*/
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    background-color: #f4f7f8;
+    color: #333;
+    line-height: 1.6;
+}
+h1{
+    text-align: center;
+}
+/* ===================================
+HEADER / NAVIGATION
+===================================
+*/
+.header {
+    background-color: #2c3e50; /* Dark Blue/Gray */
+    color: white;
+    padding: 15px 30px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5em;
+    font-weight: bold;
+    text-decoration: none;
+    color: white;
+}
+
+/* ===================================
+MAIN CONTENT / CARD SECTION
+===================================
+*/
+.main-container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #2c3e50;
+}
+
+/* CSS GRID: Arranges into 4 columns on large screens */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 25px;
+}
+
+.card {
+    background-color: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s, box-shadow 0.3s;
+    text-align: center;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.card h3 {
+    color: #3498db; /* Appealing Blue */
+    margin-top: 0;
+}
+
+/* ===================================
+FOOTER
+===================================
+*/
+.footer {
+    background-color: #34495e; /* Slightly lighter dark color */
+    color: #ecf0f1;
+    padding: 40px 20px;
+}
+
+/* Flexbox to create multi-column footer */
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap; /* Allows columns to stack on small screens */
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.footer-column {
+    flex: 1 1 300px; 
+}
+
+.footer-column h4 {
+    color: #f1c40f; /* Accent Yellow */
+    margin-bottom: 15px;
+    border-bottom: 2px solid #f1c40f;
+    padding-bottom: 5px;
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-column a {
+    color: #bdc3c7;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 8px;
+    transition: color 0.2s;
+}
+
+.footer-column a:hover {
+    color: white;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid #4a637a;
+    margin-top: 20px;
+    font-size: 0.9em;
+}
+
+
+/* ===================================
+RESPONSIVENESS (Media Queries)
+===================================
+*/
+
+/* For Tablets and smaller laptops (screens below 992px) */
+@media (max-width: 992px) {
+    .card-grid {
+        /* Below 992px, change to 2 columns */
+        grid-template-columns: repeat(2, 1fr); 
+    }
+}
+
+/* For Mobile Devices (screens below 600px) */
+@media (max-width: 600px) {
+    .card-grid {
+        /* Below 600px, change to 1 column (The stacking behavior you wanted) */
+        grid-template-columns: 1fr; 
+    }
+    .header {
+        flex-direction: column;
+        padding: 15px;
+    }
+    .footer-column {
+        flex-basis: 100%;
+    }
+}
+/* 1. Basic Setup */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f7f9; /* Light, elegant background */
+}
+
+/* 2. Page Header Styling */
+.page-header {
+    text-align: center;
+    padding: 50px 20px 30px;
+    background-color: #ffffff;
+    border-bottom: 2px solid #e0e0e0;
+}
+.page-header h1 {
+    color: #4a4a4a;
+    font-size: 2.8em;
+    margin-bottom: 5px;
+}
+.page-header p {
+    color: #777;
+    font-size: 1.1em;
+}
+
+/* 3. Main Grid Layout (Handles 3 columns on large screens) */
+.product-grid {
+    display: flex; 
+    flex-wrap: wrap; 
+    justify-content: center; 
+    padding: 30px 15px;
+    gap: 25px; /* Spacing between cards */
+}
+
+/* 4. Individual Jewellery Card (Box) Styling */
+.product-card {
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    overflow: hidden; 
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08); /* Soft shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 300px; /* Fixed width for card */
+    /* Making it responsive: */
+    flex-grow: 1000px;
+    max-width: 200px;
+}
+
+/* Hover Effect */
+.product-card:hover {
+    transform: translateY(-8px); /* Lift up slightly */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* 5. Image Styling */
+.product-image {
+    width: 100%;
+    height: 250px; 
+    object-fit: cover; /* Ensures image fills the area without distortion */
+    border-bottom: 1px solid #eee;
+}
+
+/* 6. Details and Text Styling */
+.product-details {
+    padding: 20px;
+    text-align: center;
+}
+
+.product-title {
+    color: #333;
+    font-size: 1.3em;
+    margin: 0 0 5px 0;
+}
+
+.product-desc {
+    color: #888;
+    font-size: 0.95em;
+    height: 40px; /* Ensures all boxes are same height */
+    overflow: hidden;
+}
+
+/* 7. Price Styling - Key Focus */
+.product-price {
+    font-size: 1.8em;
+    color: #B8860B; /* Darker Gold color */
+    font-weight: 700;
+    margin: 15px 0;
+}
+
+/* 8. Button Styling */
+.buy-button {
+    background-color: #D4AF37; /* Classic Gold color */
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: background-color 0.3s;
+}
+
+.buy-button:hover {
+    background-color: #d60404; 
+}
+/*
+ * CSS for Gemini Jewels Career Page
+ */
+
+/* --- General Body and Container Styling --- */
+body {
+    font-family: 'Georgia', serif; /* Using a classic font for a luxury feel */
+    margin: 0;
+    padding: 0;
+    background-color: #f7f3e8; /* Light cream/ivory background */
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 50px auto;
+    background: #ffffff;
+    padding: 50px;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* --- Typography and Headings --- */
+.logo {
+    text-align: center;
+    margin-bottom: 40px;
+    color: #0a0a09; /* Gold/Brass color */
+    font-size: 32px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-family: 'Playfair Display', serif; /* A decorative font for the logo */
+}
+
+h1 {
+    color: #4a4e69; /* Deep Slate color */
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 2.5em;
+    border-bottom: 3px solid #e0c9a6;
+    padding-bottom: 10px;
+}
+
+h2 {
+    color: #a58855; /* Gold/Brass color for section titles */
+    border-bottom: 2px solid #e0c9a6;
+    padding-bottom: 8px;
+    margin-top: 35px;
+    font-size: 1.8em;
+}
+
+p, ul {
+    font-size: 1.1em;
+    color: black
+}
+
+/* --- Job Listing Styles --- */
+.job-listing {
+    border: 1px solid #e0e0e0;
+    padding: 25px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    background-color: #fffaf0; /* Slightly off-white for the listing box */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.job-listing:hover {
+    transform: translateY(-3px); /* Slight lift effect on hover */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    border-color: #000000;
+}
+
+.job-title {
+    font-weight: bold;
+    color: #4a4e69;
+    font-size: 1.4em;
+    margin-bottom: 5px;
+}
+
+.job-location {
+    font-style: italic;
+    color: #777;
+    margin-bottom: 10px;
+    display: block;
+}
+
+/* --- Apply Button Style --- */
+.apply-button {
+    display: inline-block;
+    background-color: #000000; /* Gold button */
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-top: 15px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    text-transform: uppercase;
+}
+
+.apply-button:hover {
+    background-color: #000000; /* Darker gold on hover */
+}
+
+/* --- List Styling (Why Work With Us) --- */
+ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+ul li {
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"><path fill="%23a58855" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>') no-repeat left 5px;
+    background-size: 16px;
+    padding-left: 30px;
+    margin-bottom: 10px;
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 768px) {
+    .container {
+        margin: 20px;
+        padding: 20px;
+    }
+    h1 {
+        font-size: 2em;
+    }
+    .logo {
+        font-size: 28px;
+    }
+}
+body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fcfcfc; /* Very light background */
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        .logo {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #a58855; /* Gold/Brass color */
+            font-size: 28px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        h1 {
+            color: #4a4e69;
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2.2em;
+        }
+
+        .contact-grid {
+            display: flex;
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .contact-info, .contact-form-section {
+            flex: 1;
+            padding: 20px;
+            border-radius: 8px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        /* --- Contact Information Section --- */
+        h2 {
+            color: #a58855;
+            border-bottom: 2px solid #e0c9a6;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            font-size: 1.5em;
+        }
+
+        .info-item {
+            margin-bottom: 20px;
+        }
+
+        .info-item strong {
+            display: block;
+            color: #4a4e69;
+            margin-bottom: 5px;
+            font-size: 1.1em;
+        }
+
+        .map-placeholder {
+            height: 250px;
+            background-color: #e6e6e6;
+            text-align: center;
+            line-height: 250px;
+            color: #777;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        /* --- Contact Form Styling --- */
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        input[type="text"], input[type="email"], textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+            transition: border-color 0.3s;
+        }
+
+        input:focus, textarea:focus {
+            border-color: #a58855; /* Gold border on focus */
+            outline: none;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .submit-button {
+            background-color: #4a4e69; /* Slate color button */
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .submit-button:hover {
+            background-color: #3e425e;
+        }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 800px) {
+            .contact-grid {
+                flex-direction: column;
+            }
+        }
