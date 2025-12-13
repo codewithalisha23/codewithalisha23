@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sovereign Brides - Luxurious Bridal Wear</title>
+    
+    <!-- 1. Load Tailwind CSS Library -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- 2. Configure Tailwind Theme -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'ivory': '#FAFAFA',         // Off-white, soft background
+                        'maroon-dark': '#581845',   // Deep, rich primary color (Dark Wine/Maroon)
+                        'gold-accent': '#D4AF37',   // Classic Gold accent
+                        'rose-light': '#F8E7E7',    // Light blush/rose for soft backgrounds
+                    },
+                    fontFamily: {
+                        sans: ['Cormorant Garamond', 'serif'], // Elegant font choice (simulated with Inter/serif fallback)
+                        serif: ['Cormorant Garamond', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- 3. Custom Styles (CSS/Style Block) -->
+    <style>
+        body {
+            font-family: 'Inter', serif; /* Using Inter as a common modern font, but aiming for elegance */
+            background-color: #FAFAFA; /* Ivory background */
+        }
+        .text-shadow-gold {
+            text-shadow: 2px 2px 4px rgba(212, 175, 55, 0.4);
+        }
+        .nav-link:hover {
+            color: #D4AF37; /* Gold on hover */
+            transform: scale(1.05);
+        }
+        .current-page {
+            color: #D4AF37; /* Gold for active link */
+            font-weight: 600;
+            border-bottom: 2px solid #D4AF37;
+        }
+        .card-elegant-shadow {
+            box-shadow: 0 4px 15px rgba(88, 24, 69, 0.2); /* Soft shadow from maroon */
+        }
+    </style>
+</head>
+<body class="text-maroon-dark min-h-screen flex flex-col">
+
+    <!-- Header & Navigation -->
+    <header class="bg-ivory shadow-lg sticky top-0 z-10 border-b border-gold-accent/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <!-- Logo/Brand Name -->
+            <a href="#" onclick="navigate('home')" class="text-4xl font-bold tracking-wider text-maroon-dark flex items-center">
+                Sovereign <span class="text-gold-accent ml-2">Brides</span>
+            </a>
+            
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex space-x-8 text-lg uppercase tracking-wide">
+                <a href="#" onclick="navigate('home')" id="nav-home" class="nav-link transition duration-200 ease-in-out">Home</a>
+                <a href="#" onclick="navigate('collection')" id="nav-collection" class="nav-link transition duration-200 ease-in-out">Collection</a>
+                <a href="#" onclick="navigate('gallery')" id="nav-gallery" class="nav-link transition duration-200 ease-in-out">Gallery</a>
+                <a href="#" onclick="navigate('consultation')" id="nav-consultation" class="nav-link transition duration-200 ease-in-out">Consultation</a>
+            </nav>
+            
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="md:hidden p-2 rounded-md hover:bg-rose-light focus:outline-none focus:ring-2 focus:ring-gold-accent" aria-label="Toggle menu">
+                <svg class="w-7 h-7 text-maroon-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </button>
+        </div>
+        
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-rose-light pb-2">
+            <a href="#" onclick="navigate('home'); toggleMobileMenu()" class="block px-4 py-2 text-maroon-dark hover:bg-gold-accent/20 transition duration-150 ease-in-out uppercase tracking-wide">Home</a>
+            <a href="#" onclick="navigate('collection'); toggleMobileMenu()" class="block px-4 py-2 text-maroon-dark hover:bg-gold-accent/20 transition duration-150 ease-in-out uppercase tracking-wide">Collection</a>
+            <a href="#" onclick="navigate('gallery'); toggleMobileMenu()" class="block px-4 py-2 text-maroon-dark hover:bg-gold-accent/20 transition duration-150 ease-in-out uppercase tracking-wide">Gallery</a>
+            <a href="#" onclick="navigate('consultation'); toggleMobileMenu()" class="block px-4 py-2 text-maroon-dark hover:bg-gold-accent/20 transition duration-150 ease-in-out uppercase tracking-wide">Consultation</a>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main id="content-container" class="flex-grow max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-10 md:py-16">
+        <!-- Content will be injected here by JavaScript -->
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-maroon-dark text-ivory mt-auto py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-sm">
+            <p>&copy; 2025 Sovereign Brides. All Rights Reserved.</p>
+            <p class="mt-1 text-gold-accent">Elegance is Timeless.</p>
+        </div>
+    </footer>
+
+    <script>
+        // State management for navigation
+        let currentPage = 'home';
+        const contentContainer = document.getElementById('content-container');
+        // Define navLinks to be used for highlighting
+        const navLinks = {
+            'home': document.getElementById('nav-home'),
+            'collection': document.getElementById('nav-collection'),
+            'gallery': document.getElementById('nav-gallery'),
+            'consultation': document.getElementById('nav-consultation'),
+        };
+
+        // Utility function to handle mobile menu visibility
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+        document.getElementById('mobile-menu-button').addEventListener('click', toggleMobileMenu);
+
+        // Simulated Page Content
+        const pages = {
+            home: `
+                <section class="text-center bg-rose-light rounded-xl card-elegant-shadow overflow-hidden">
+                    <!-- Hero Section -->
+                    <div class="relative">
+                        <!-- Image Link for Hero -->
+                        <img src="bride.png"
+                             alt="Stunning Bridal Suit on a Model"
+                             class="w-full" "h-full" object-cover object-top opacity-50">
+                        
+                        <div class="absolute inset-0 flex flex-col justify-center items-center p-4 bg-maroon-dark/30">
+                            <h1 class="text-5xl md:text-7xl font-bold mb-4 text-ivory text-shadow-gold">
+                                The Sovereign Collection
+                            </h1>
+                            <p class="text-xl md:text-3xl text-gold-accent max-w-3xl mx-auto italic">
+                                Where Dreams are Woven into Fabric.
+                            </p>
+                            <button onclick="navigate('collection')" class="mt-8 bg-gold-accent text-maroon-dark py-3 px-8 rounded-full text-lg font-semibold hover:bg-gold-accent/80 transition duration-300 transform hover:scale-105 shadow-xl uppercase">
+                                Explore Our Legacy
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="py-10 px-4 md:px-10">
+                        <h2 class="text-3xl font-bold text-maroon-dark mb-4">Crafted for Royalty</h2>
+                        <p class="text-lg text-gray-700 max-w-4xl mx-auto">
+                            Each bridal suitain our collection is meticulously handcrafted by master artisans, blending centuries-old techniques with modern silhouettes. We use only the finest silks, exquisite embroidery, and hand-placed embellishments to ensure your outfit is nothing short of perfection.
+                        </p>
+                    </div>
+                </section>
+            `,
+            collection: `
+                <section class="py-6 md:py-12">
+                    <h2 class="text-4xl md:text-5xl font-bold text-center mb-10 text-gold-accent text-shadow-gold">Our Exclusive Collections</h2>
+                    <p class="text-center text-lg mb-12 max-w-3xl mx-auto text-gray-700">
+                        Discover the line that speaks to your unique love story, from traditional opulence to contemporary grace.
+                    </p>
+
+                    <div class="grid md:grid-cols-3 gap-8">
+                        <!-- Collection Card 1: The Heritage Line -->
+                        <div class="bg-ivory rounded-xl overflow-hidden card-elegant-shadow hover:shadow-2xl transition duration-300">
+                            <!-- Image Link -->
+                            <img src="bridee.png"
+                                 alt="Traditional Heavy Bridal Suit"
+                                 class="w-full h-96 object-cover">
+                            <div class="p-6 text-center">
+                                <h3 class="text-2xl font-bold text-maroon-dark mb-2">The Heritage Line</h3>
+                                <p class="text-gray-600 mb-4">Timeless designs with heavy zardozi and traditional motifs.</p>
+                                <a href="#" class="text-gold-accent font-semibold hover:text-maroon-dark transition duration-200 border-b border-gold-accent/50">View Pieces &rarr;</a>
+                            </div>
+                        </div>
+
+                        <!-- Collection Card 2: The Modern Muse -->
+                        <div class="bg-ivory rounded-xl overflow-hidden card-elegant-shadow hover:shadow-2xl transition duration-300">
+                            <!-- Image Link -->
+                            <img src="brideee.png"
+                                 alt="Modern, light bridal suit"
+                                 class="w-full h-94 object-cover">
+                            <div class="p-6 text-center">
+                                <h3 class="text-2xl font-bold text-maroon-dark mb-2">The Modern Muse</h3>
+                                <p class="text-gray-600 mb-4">Clean cuts, soft pastels, and intricate crystal work.</p>
+                                <a href="#" class="text-gold-accent font-semibold hover:text-maroon-dark transition duration-200 border-b border-gold-accent/50">View Pieces &rarr;</a>
+                            </div>
+                        </div>
+
+                        <!-- Collection Card 3: The Royal Velvet -->
+                        <div class="bg-ivory rounded-xl overflow-hidden card-elegant-shadow hover:shadow-2xl transition duration-300">
+                            <!-- Image Link -->
+                            <img src="valevet.png"
+                                 alt="Velvet bridal attire"
+                                 class="w-full h-94 object-cover">
+                            <div class="p-6 text-center">
+                                <h3 class="text-2xl font-bold text-maroon-dark mb-2">The Royal Velvet</h3>
+                                <p class="text-gray-600 mb-4">Deep hues of velvet, perfect for winter weddings and regal aesthetics.</p>
+                                <a href="#" class="text-gold-accent font-semibold hover:text-maroon-dark transition duration-200 border-b border-gold-accent/50">View Pieces &rarr;</a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            `,
+            gallery: `
+                <section class="py-6 md:py-12">
+                    <h2 class="text-4xl md:text-5xl font-bold text-center mb-10 text-maroon-dark">Lookbook Gallery</h2>
+                    <p class="text-center text-lg mb-12 max-w-3xl mx-auto text-gray-700">
+                        A glimpse into the detail, fit, and grandeur of our bridal ensembles worn by real clients.
+                    </p>
+
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                        <!-- Image Link 1 -->
+                        <div class="rounded-lg overflow-hidden shadow-lg hover:shadow-xl transform hover:scale-[1.02] transition duration-300 aspect-square">
+                            <img src="red.png"
+                                 alt="Close-up of embroidery"
+                                 class="w-full h-94 object-cover">
+                        </div>
+                        <!-- Image Link 2 -->
+                        <div class="rounded-lg overflow-hidden shadow-lg hover:shadow-xl transform hover:scale-[1.02] transition duration-300 aspect-square">
+                            <img src="blue.png"
+                                 alt="Full shot of dress"
+                                 class="w-full h-94 object-cover">
+                        </div>
+                        <!-- Image Link 3 -->
+                        <div class="rounded-lg overflow-hidden shadow-lg hover:shadow-xl transform hover:scale-[1.02] transition duration-300 aspect-square">
+                            <img src="purple.png"
+                                 alt="Bride photo shoot"
+                                 class="w-full h-94 object-cover">
+                        </div>
+                        <!-- Image Link 4 -->
+                        <div class="rounded-lg overflow-hidden shadow-lg hover:shadow-xl transform hover:scale-[1.02] transition duration-300 aspect-square">
+                            <img src="pink.png"
+                                 alt="Detail of dupatta"
+                                 class="w-full h-94 object-cover">
+                        </div>
+                        <!-- Image Link 5 -->
+                        <div class="rounded-lg overflow-hidden shadow-lg hover:shadow-xl transform hover:scale-[1.02] transition duration-300 aspect-square">
+                            <img src="nu.png"
+                                 alt="Close-up of embroidery"
+                                 class="w-full h-94 object-cover">
+                        </div>
+                        <!-- Image Link 6 -->
+                        <div class="rounded-lg overflow-hidden shadow-lg hover:shadow-xl transform hover:scale-[1.02] transition duration-300 aspect-square">
+                            <img src="black.png"
+                                 alt="Full shot of dress"
+                                 class="w-full h-94 object-cover">
+                        </div>
+                        <!-- Image Link 7 -->
+                        <div class="rounded-lg overflow-hidden shadow-lg hover:shadow-xl transform hover:scale-[1.02] transition duration-300 aspect-square">
+                            <img src="redd.png"
+                                 alt="Bride photo shoot"
+                                  class="w-full h-94 object-cover">
+                        </div>
+                        <!-- Image Link 8 -->
+                        <div class="rounded-lg overflow-hidden shadow-lg hover:shadow-xl transform hover:scale-[1.02] transition duration-300 aspect-square">
+                            <img src="reddd.png"
+                                 alt="Detail of dupatta"
+                                 class="w-full h-94 object-cover">
+                        </div>
+                    </div>
+                </section>
+            `,
+            consultation: `
+                <section class="py-6 md:py-12">
+                    <h2 class="text-4xl md:text-5xl font-bold text-center mb-10 text-gold-accent text-shadow-gold">Book Your Private Consultation</h2>
+                    <p class="text-center text-lg mb-8 max-w-2xl mx-auto text-gray-700">
+                        Ready to find your perfect bridal suit? Book a personalized appointment with our lead designer.
+                    </p>
+
+                    <div class="max-w-lg mx-auto bg-white rounded-xl p-6 md:p-10 card-elegant-shadow border-t-4 border-gold-accent">
+                        <form id="consultation-form" onsubmit="handleFormSubmit(event)">
+                            <div class="mb-5">
+                                <label for="bride-name" class="block text-sm font-medium text-maroon-dark mb-1">Your Name</label>
+                                <input type="text" id="bride-name" name="brideName" required
+                                       class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-maroon-dark focus:border-maroon-dark transition duration-150 bg-rose-light/50">
+                            </div>
+
+                            <div class="mb-5">
+                                <label for="contact-email" class="block text-sm font-medium text-maroon-dark mb-1">Email Address</label>
+                                <input type="email" id="contact-email" name="email" required
+                                       class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-maroon-dark focus:border-maroon-dark transition duration-150 bg-rose-light/50">
+                            </div>
+
+                            <div class="mb-5">
+                                <label for="date-pref" class="block text-sm font-medium text-maroon-dark mb-1">Wedding Date / Timeframe</label>
+                                <input type="text" id="date-pref" name="datePref" placeholder="e.g., Spring 2026 or Nov 15th"
+                                       class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-maroon-dark focus:border-maroon-dark transition duration-150 bg-rose-light/50">
+                            </div>
+
+                            <div class="mb-6">
+                                <label for="style-pref" class="block text-sm font-medium text-maroon-dark mb-1">Preferred Style/Line (Optional)</label>
+                                <select id="style-pref" name="stylePref"
+                                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-maroon-dark focus:border-maroon-dark transition duration-150 bg-rose-light/50">
+                                    <option value="">-- Select a Collection --</option>
+                                    <option value="Heritage">The Heritage Line (Traditional)</option>
+                                    <option value="Modern">The Modern Muse (Contemporary)</option>
+                                    <option value="Velvet">The Royal Velvet (Winter)</option>
+                                    <option value="Custom">Custom Design</option>
+                                </select>
+                            </div>
+
+                            <button type="submit"
+                                    class="w-full bg-maroon-dark text-ivory py-3 rounded-lg text-lg font-semibold hover:bg-maroon-dark/90 transition duration-300 transform hover:scale-[1.01] shadow-xl uppercase tracking-wider border-2 border-gold-accent">
+                                Request Appointment
+                            </button>
+                        </form>
+
+                        <!-- Confirmation Message Box -->
+                        <div id="confirmation-message" class="mt-6 p-4 text-center bg-green-100 text-green-800 border-l-4 border-gold-accent rounded-lg hidden">
+                            <span class="font-bold">Confirmation!</span> We've received your request and will contact you within 24 hours.
+                        </div>
+
+                        <p class="text-center mt-6 text-sm text-gray-500">
+                            For urgent inquiries, please call us at (555) BRIDE-SOV.
+                        </p>
+                    </div>
+                </section>
+            `
+        };
+
+        // Function to handle page navigation (SPA simulation)
+        function navigate(pageName) {
+            currentPage = pageName;
+            renderPage();
+            updateNavigationHighlight();
+            // Scroll to top when navigating
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Function to update the active navigation link highlight
+        function updateNavigationHighlight() {
+            // Reset all links
+            Object.values(navLinks).forEach(link => {
+                if (link) {
+                    link.classList.remove('current-page');
+                }
+            });
+            // Highlight the current page link
+            const currentLink = navLinks[currentPage];
+            if (currentLink) {
+                currentLink.classList.add('current-page');
+            }
+        }
+
+        // Function to render the current page content
+        function renderPage() {
+            if (pages[currentPage]) {
+                contentContainer.innerHTML = pages[currentPage];
+            } else {
+                contentContainer.innerHTML = `<h2 class="text-3xl text-center text-maroon-dark pt-12">404 - Page Not Found</h2>`;
+            }
+        }
+
+        // Function to handle the form submission (simulated)
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            const form = event.target;
+            
+            // Show confirmation message
+            const confirmationBox = document.getElementById('confirmation-message');
+            confirmationBox.classList.remove('hidden');
+
+            // Log form data to console for developer review
+            const formData = new FormData(form);
+            const data = Object.fromEntries(formData.entries());
+            console.log("Consultation Request Submitted:", data);
+
+            // Optionally clear the form after a short delay
+            setTimeout(() => {
+                form.reset();
+                confirmationBox.classList.add('hidden');
+            }, 5000);
+        }
+
+        // Initialize the website on load
+        document.addEventListener('DOMContentLoaded', () => {
+            // Set initial page state and render
+            const initialPage = window.location.hash.substring(1) || 'home';
+            // Simple validation to prevent rendering non-existent pages on initial load
+            currentPage = pages[initialPage] ? initialPage : 'home';
+
+            renderPage();
+            updateNavigationHighlight();
+        });
+    </script>
+</body>
+</html>
